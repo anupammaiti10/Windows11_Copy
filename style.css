@@ -57,6 +57,8 @@ div.windows{
    
 }
 
+ 
+
 /* .icons i{
     width:25px;
     height:20px;
@@ -68,10 +70,10 @@ div.windows{
  
 /* search_bar div */
 .search_bar{
-    /* background-color:rgb(52, 61, 60) ; */
-    display:flex;
-    position:relative;
-    left:320px;
+      /* background-color:rgb(52, 61, 60) ; */
+      display:flex;
+      position:relative;
+      left:320px;
 }
 .search_icon{
     width:40px
@@ -211,7 +213,6 @@ div.rest_icon .hover{
     top: 100%; /* Start off screen */
     left: 25%;
     transform: translate(0.5%, 0.5%);
-    
     display: none; /* Hidden by default */
     flex-direction: column;
     padding: 20px;
@@ -576,4 +577,7 @@ div.rest_icon .hover{
 
 .desktop:hover{
     background-color: #504d46;
+}
+.task_view:hover{
+
 }
