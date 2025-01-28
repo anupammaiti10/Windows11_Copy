@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 body {
   width: auto;
@@ -16,7 +16,7 @@ div.windows {
 #windows_logo {
   width: 100%;
   height: 92vh;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 /* taskbar div */
 .taskbar {
@@ -29,8 +29,8 @@ div.windows {
 }
 
 .icons {
-  width: 25px;
-  height: 20px;
+  width: 2.5rem;
+  height: 2.5rem;
   position: relative;
   left: 315px;
   color: rgb(0, 188, 202);
@@ -40,6 +40,11 @@ div.windows {
   justify-content: center;
   align-items: center;
 }
+
+.transition_icons {
+  animation: icon_popup 0.2s ease;
+}
+
 @keyframes icon_popup {
   0% {
     transform: scale(0.5);
@@ -49,34 +54,21 @@ div.windows {
   }
 }
 
-.transition_icons {
-  animation: icon_popup 0.2s ease;
-}
-
-/* .icons i{
-    width:25px;
-    height:20px;
-    color: rgb(13, 153, 153); 
-    font-size:35px;
-    position: relative;
-    left:330px;
-} */
-
 /* search_bar div */
 .search_bar {
   /* background-color:rgb(52, 61, 60) ; */
   display: flex;
   position: relative;
-  left: 320px;
+  left: 21%;
 }
 .search_icon {
-  width: 40px;
+  width: 2rem;
 }
 
 div.search_icon i {
   height: 42px;
   padding-left: 10px;
-  font-size: 18px;
+  font-size: 1.1rem;
   color: rgb(242, 238, 238);
   background-color: rgba(123 142 124 / 41%);
   display: flex;
@@ -89,11 +81,11 @@ div.search_icon i {
   color: rgb(200, 187, 187);
 }
 #search {
-  width: 180px;
+  width: 190px;
   height: 42px;
   outline: none;
-  border: none; /* Removes the border completely */
-  outline: none; /* Removes the focus outline */
+  border: none;
+  outline: none;
   border-color: transparent;
   /* color:rgb(255, 255, 255); */
   background-color: rgba(123 142 124 / 41%);
@@ -107,16 +99,16 @@ div.search_icon i {
 /* apps_icons */
 .apps_icon {
   display: flex;
-  gap: 2px;
+  gap: 5px;
   justify-content: center;
   align-items: center;
   position: relative;
-  right: -320px;
+  left: 21rem;
 }
 .app_icon {
-  width: 30px;
-  height: auto;
-  padding: 6px;
+  width: 2.5rem;
+  height: 2.5rem;
+  /* padding: 6px; */
   display: flex;
   border: 5px;
   /* margin:6px; */
@@ -124,14 +116,244 @@ div.search_icon i {
   align-items: center;
 }
 .app_icon img {
-  width: 100%;
-  height: 25px;
-  font-size: 30px;
+  width: 80%;
+  height: 1.5rem;
+  font-size: 5rem;
   box-sizing: content-box;
 }
 .app_icon i {
   color: white;
-  font-size: 25px;
+  font-size: 1.5rem;
+}
+
+/* windows_popup bar */
+.windows_popup {
+  width: 45%;
+  height: 90%;
+  background-color: rgb(47, 49, 48);
+  position: fixed;
+  top: 100%; /* Start off screen */
+  left: 25%;
+  transform: translate(0.5%, 0.5%);
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  /* padding: 20px; */
+  border-radius: 10px;
+  animation: window_popup 0.3s forwards; /* Animation when shown */
+}
+
+@keyframes window_popup {
+  from {
+    transform: translateY(0); /* Start position */
+  }
+  to {
+    transform: translateY(-690px); /* End position */
+  }
+}
+
+.open_popup {
+  display: flex; /* Show the popup */
+}
+
+.search_icon1 {
+  width: 90%;
+  height: 6%;
+  margin-top: 1rem;
+  /* padding: 5px; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-color: #5a5b5b;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.search_icon1 i {
+  color: rgb(10, 135, 223);
+  font-size: 1.3rem;
+  position: absolute;
+  left: 8%;
+  z-index: 20;
+}
+
+#search1 {
+  width: 85%;
+  height: 6%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-left: 20px;
+  position: absolute;
+  left: 10%;
+  /* display: flex; */
+  /* flex-grow:1; */
+}
+
+#search1::placeholder {
+  /* padding-left:50px ; */
+  /* width: 400px; */
+  color: rgb(255, 254, 254);
+  font-display: none;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  /* flex-grow:; */
+}
+/* .apps_information{
+    width:600px;
+    height:20px;
+    background-color:rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    top:50px;
+    gap: 20px;
+    
+} */
+.apps_information {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  border-radius: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  /* padding: 20px; */
+  position: relative;
+  top: 20px;
+  gap: 350px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  justify-content: space-around;
+}
+.pinned {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 300;
+}
+.all_apps_button {
+  width: 90px;
+  text-align: justify;
+  padding: 6px;
+  color: rgb(241, 241, 241);
+  background-color: rgb(40, 39, 39);
+  /* outline:none; */
+  border: 0px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.all_apps_icon {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 2.5rem;
+  position: relative;
+}
+.all_apps {
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  /* background-color: rgb(140, 150, 158); */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
+  margin-left: 1.5rem;
+  margin-right: 2.5rem;
+  /* position: relative;
+  top: 30px; */
+  grid-gap: 2rem;
+}
+
+.slider {
+  width: 10%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 40%;
+  left: 97%;
+}
+
+.slider i {
+  font-size: 15px;
+  color: white;
+  display: none;
+}
+
+.dot {
+  cursor: pointer;
+  height: 7px;
+  width: 7px;
+  margin: 3px 1px;
+  /* padding-left: 2px; */
+  background-color: #bbb;
+  border-radius: 50%;
+  display: block;
+  transition: background-color 0.6s ease;
+}
+.apps img {
+  background-color: transparent;
+  width: 1.9rem;
+}
+
+.apps p {
+  font-size: 1rem;
+  color: aliceblue;
+}
+
+.windows_popup .account {
+  width: 100%;
+  height: 10%;
+  /* margin:30px; */
+  /* padding-left:20px;
+  padding-right:20px; */
+  background-color: #252422;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  position: relative;
+  top: 28%;
+
+  /* text-align: center; */
+  /* display: inline-block; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position:absolute;
+    bottom:0px; */
+}
+
+.Profile {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-image: url(Anupam.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  /* margin-left: 1rem; */
+  position: absolute;
+  left: 2rem;
+}
+.account span {
+  font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  right: 78%;
+  color: white;
+}
+.Power_off {
+  font-size: 1.3rem;
+  color: white;
+  position: absolute;
+  right: 5%;
 }
 /* rest_icons  */
 .rest_icon {
@@ -381,229 +603,6 @@ div.rest_icon .hover {
   /* padding:10px;
     border-radius: 5px; */
   /* position:relative; */
-}
-/* windows_popup bar */
-.windows_popup {
-  width: 700px;
-  height: 575px;
-  background-color: rgb(47, 49, 48);
-  position: fixed;
-  top: 100%; /* Start off screen */
-  left: 25%;
-  transform: translate(0.5%, 0.5%);
-  display: none; /* Hidden by default */
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 10px;
-  animation: window_popup 0.3s forwards; /* Animation when shown */
-}
-
-@keyframes window_popup {
-  from {
-    transform: translateY(0); /* Start position */
-  }
-  to {
-    transform: translateY(-690px); /* End position */
-  }
-}
-
-.open_popup {
-  display: flex; /* Show the popup */
-}
-
-.search_icon1 {
-  width: 650px;
-  height: 25px;
-  padding: 5px;
-  display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  background-color: rgb(96, 90, 90);
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.search_icon1 i {
-  color: rgb(10, 135, 223);
-  font-size: 20px;
-  text-align: center;
-  position: relative;
-  top: 1px;
-  right: 160px;
-}
-
-#search1 {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  position: relative;
-  left: -120px;
-  /* display: flex; */
-  /* flex-grow:1; */
-  padding-right: 120px;
-}
-
-#search1::placeholder {
-  width: 400px;
-  color: rgb(255, 254, 254);
-  font-display: none;
-  font-size: 15px;
-  font-weight: 500;
-  display: flex;
-  /* flex-grow:; */
-}
-/* .apps_information{
-    width:600px;
-    height:20px;
-    background-color:rgb(255, 255, 255);
-    border-radius: 10px;
-    padding: 20px;
-    position: relative;
-    top:50px;
-    gap: 20px;
-    
-} */
-.apps_information {
-  width: 650px;
-  height: auto;
-  background-color: transparent;
-  border-radius: 10px;
-  padding: 20px;
-  position: relative;
-  top: 20px;
-  gap: 350px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-self: center;
-  justify-content: space-around;
-}
-.pinned {
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  font-weight: 300;
-}
-.all_apps_button {
-  width: 90px;
-  text-align: justify;
-  padding: 6px;
-  color: rgb(241, 241, 241);
-  background-color: rgb(40, 39, 39);
-  /* outline:none; */
-  border: 0px;
-  display: flex;
-  justify-content: space-around;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 300;
-}
-
-.all_apps_icon {
-  width: 100rem;
-  display: flex;
-  align-items: center;
-}
-.all_apps {
-  width: 70rem;
-  height: auto;
-  /* background-color: rgb(140, 150, 158); */
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  text-align: center;
-  margin-left: 30px;
-  margin-right: 40px;
-  position: relative;
-  top: 30px;
-  grid-gap: 20px;
-  /* justify-content: shrink; */
-}
-
-.slider {
-  width: 30rem;
-  margin: 0px;
-  padding: 0;
-}
-
-.slider i {
-  font-size: 15px;
-  color: white;
-  display: none;
-}
-
-.dot {
-  cursor: pointer;
-  height: 7px;
-  width: 7px;
-  margin: 3px 1px;
-  /* padding-left: 2px; */
-  background-color: #bbb;
-  border-radius: 50%;
-  display: block;
-  transition: background-color 0.6s ease;
-}
-.apps img {
-  background-color: transparent;
-  width: 35px;
-}
-.apps p {
-  font-size: 15px;
-  color: aliceblue;
-}
-
-/*.all_apps_icon i.fa-solid{
-    transform: rotateY(90deg);
-   
-     
-}*/
-
-.account {
-  width: 100%;
-  height: 60px;
-  /* margin:30px; */
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #252422;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  position: relative;
-  left: -20px;
-  top: 220px;
-  /* text-align: center; */
-  /* display: inline-block; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* position:absolute;
-    bottom:0px; */
-}
-
-.Profile {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-image: url(Anupam.jpg);
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  position: relative;
-  left: 40px;
-}
-.account span {
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  position: relative;
-  right: 220px;
-  color: white;
-}
-.Power_off {
-  font-size: 20px;
-  color: white;
-  position: relative;
-  right: 40px;
 }
 /* wifi_blutooth_Airplane */
 
