@@ -116,8 +116,8 @@ let monthDropBtns = document.querySelectorAll(
 let changeTimeBtns = document.querySelectorAll(".minus-btn, .plus-btn");
 let timeBtn = document.querySelector(".time-btn");
 const calendarDays = document.getElementById("calendar-days");
-
-const today = new Date();
+                                  
+const today = new Date();         
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
 
@@ -154,12 +154,12 @@ function generateCalendar(month, year) {
 
   currentyear.innerHTML = `${months[month]}, ${year}`;
   let date = 1;
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {    
     const row = document.createElement("tr");
 
-    for (let j = 0; j < 7; j++) {
+    for (let j = 0; j < 7; j++) {  
       const cell = document.createElement("td");
-      if (i === 0 && j < firstDay) {
+      if (i === 0 && j < firstDay) { 
         cell.innerHTML = "";
       } else if (date > daysInMonth) {
         break;
